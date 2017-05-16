@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/city/city",
+    "pages/city_map/city_map",
+    "pages/spot_detail/spot_detail",
+    "pages/all_comment/all_comment",
+    "pages/comment/comment",
+    "pages/logs/logs",
+    "pages/new/new"
+  ],
+  "window": {
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "单干小雷达",
+    "navigationBarTextStyle":"black"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

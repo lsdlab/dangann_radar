@@ -1,0 +1,14 @@
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+}
+
+.logo {
+  margin-top: 10px;
+}
+
+.logo image {
+  width: 300px;
+  height: 208px
+}
