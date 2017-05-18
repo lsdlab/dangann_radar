@@ -12,10 +12,10 @@
             <view class="weui-tab__panel">
                 <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
                   <view class="userinfo">
-                    <text class="user-motto" style="margin-top: 20px; margin-left:10px; margin-right: 10px">与自由工作者、程序员、设计师分享适合外出办公的地方</text>
+                    <text class="user-motto" style="margin-top: 10px; margin-left:20px; margin-right: 20px">与自由工作者、程序员、设计师分享适合外出办公的地方</text>
                   </view>
 
-                  <view class="page__bd">
+                  <view class="page__bd" style="margin-top:10px">
                     <view class="weui-panel weui-panel_access">
                       <view class="weui-panel__hd" style="font-size:20px; color:black; border: 1rpx solid #fff">动态</view>
                       <view wx:if="{{spot_list != '1'}}" class="weui-panel__bd">
@@ -26,7 +26,7 @@
                             <view class="weui-media-box__desc" wx:if="{{comment.comment_mark == 'comment'}}" >{{comment.comment_date}} 评论</view>
                             <view class="weui-media-box__desc" wx:if="{{comment.comment_mark == 'check'}}" >{{comment.comment_date}} 签到</view>
                             <view class="weui-media-box__desc" bindtap="bindSpotViewTap" id="{{comment.spot_id}}">{{comment.spot_city}} | {{comment.spot_name}} </view>
-                            <!-- <view class="weui-media-box__desc">{{spot.commit_message}}</view> -->
+                            <view class="weui-media-box__desc">{{comment.comment_message}}</view>
                           </view>
                         </block>
 
@@ -35,7 +35,7 @@
                             <view class="weui-media-box__title weui-media-box__title_in-text" style="font-size: 18px" bindtap="bindUserDetailViewTap" id="{{spot.commit_user_id}}">@{{spot.commit_user_name}}</view>
                             <view class="weui-media-box__desc">{{spot.commit_date}} 提交</view>
                             <view class="weui-media-box__desc" bindtap="bindSpotViewTap" id="{{spot.id}}">{{spot.city}} | {{spot.name}}</view>
-                            <!-- <view class="weui-media-box__desc">{{spot.commit_message}}</view> -->
+                            <view class="weui-media-box__desc">{{spot.commit_message}}</view>
                           </view>
                         </block>
 
@@ -82,8 +82,8 @@
                 </view>
                 <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
                   <!--user.wxml-->
-                  <view style="margin-top: 10px">
-                    <view bindtap="bindLogViewTap" class="userinfo">
+                  <view>
+                    <view bindtap="bindLogViewTap" class="userinfo" style="padding-top: 10px; padding-bottom: 10px">
                       <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
                       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
                     </view>

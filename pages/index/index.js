@@ -162,23 +162,23 @@ Page({
           })
         }
 
-        function get_api_token() {
-          var api_token_request_url = "http://dangann.com/api/v1/api-token-auth/?format=json"
-          wx.request({
-            method: 'POST',
-            data: {
-               'username': 'api_user_for_weixin',
-               'password': '1234%^&*'
-            },
-            url: api_token_request_url,
-            success: function(res) {
-              var token_data = res.data
-              wx.setStorageSync('api_token', token_data['token'])
-            }
-          })
-        }
+        // function get_api_token() {
+        //   var api_token_request_url = "http://dangann.com/api/v1/api-token-auth/?format=json"
+        //   wx.request({
+        //     method: 'POST',
+        //     data: {
+        //        'username': 'api_user_for_weixin',
+        //        'password': '1234%^&*'
+        //     },
+        //     url: api_token_request_url,
+        //     success: function(res) {
+        //       var token_data = res.data
+        //       wx.setStorageSync('api_token', token_data['token'])
+        //     }
+        //   })
+        // }
 
-        get_api_token()
+        // get_api_token()
         var nickname = userInfo['nickName']
         var avatarurl = userInfo['avatarUrl']
         var check_user_request_url = "http://dangann.com/api/v1/check_user/" + nickname + "/?format=json"
