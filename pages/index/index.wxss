@@ -144,6 +144,7 @@ page{
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: white;
 }
 
 .userinfo-avatar {
@@ -158,8 +159,8 @@ page{
   font-size: 14px;
 }
 
-.usermotto {
-  margin-top: 200px;
+.user-motto {
+  text-align: center;
 }
 
 .commit-title {
@@ -181,3 +182,4 @@ page{
   width: 300px;
   height: 208px
 }
+

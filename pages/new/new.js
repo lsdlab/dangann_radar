@@ -1,8 +1,7 @@
 var app = getApp()
 Page({
   data: {
-    array: ['中国', '美国', '巴西', '日本'],
-    bathroom: 0,
+    bathroom: '0',
     items: [
       {name: '有洗手间', value: '0'},
       {name: '无洗手间', value: '1', checked: true}
@@ -13,18 +12,6 @@ Page({
     this.setData({
       index: e.detail.value
     })
-  },
-  radioChange: function(e) {
-    console.log('radio发生change事件，携带value值为：', e.detail.value)
-
-    var items = this.data.items;
-    for (var i = 0, len = items.length; i < len; ++i) {
-      items[i].checked = items[i].value == e.detail.value
-    }
-
-    this.setData({
-      items: items
-    });
   },
   formSubmit: function(e) {
     var that = this
@@ -51,7 +38,7 @@ Page({
         duration: 1000
       })
     } else {
-      var comment_request_url = "http://192.168.2.2:8000/api/v1/spots/?format=json"
+      var comment_request_url = "http://dangann.com/api/v1/spots/"
       wx.request({
         method: 'POST',
         data: {
@@ -69,7 +56,8 @@ Page({
         },
         url: comment_request_url,
         header: {
-          'content-type':'application/x-www-form-urlencoded'
+          'content-type':'application/x-www-form-urlencoded',
+          'Authorization': 'JWT ' + wx.getStorageSync('api_token')
         },
         success: function(res) {
           var commit_data = res.data

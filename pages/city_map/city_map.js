@@ -16,11 +16,12 @@ Page({
     var that = this
     console.log(event.markerId)
     var spot_id = event.markerId
-    var request_url = "http://192.168.2.2:8000/api/v1/spots/" + spot_id.toString() + "/?format=json"
+    var request_url = "http://dangann.com/api/v1/spots/" + spot_id.toString() + "/?format=json"
     wx.request({
       url: request_url,
       header: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          'Authorization': 'JWT ' + wx.getStorageSync('api_token')
       },
       success: function(res) {
         var spot_data = res.data
@@ -48,11 +49,12 @@ Page({
     wx.setNavigationBarTitle({
       title: city_name
     })
-    var request_url = "http://192.168.2.2:8000/api/v1/city_spot_list_for_map/" + city_name + "/"
+    var request_url = "http://dangann.com/api/v1/city_spot_list_for_map/" + city_name + "/"
     wx.request({
       url: request_url,
       header: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          'Authorization': 'JWT ' + wx.getStorageSync('api_token')
       },
       success: function(res) {
         var spot_list = res.data
@@ -65,11 +67,12 @@ Page({
         latitude = spot_list[0].latitude
 
         var spot_id = spot_list[0].id
-        var request_url = "http://192.168.2.2:8000/api/v1/spots/" + spot_id.toString() + "/?format=json"
+        var request_url = "http://dangann.com/api/v1/spots/" + spot_id.toString() + "/?format=json"
           wx.request({
             url: request_url,
             header: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'Authorization': 'JWT ' + wx.getStorageSync('api_token')
             },
             success: function(res) {
               var spot_data = res.data

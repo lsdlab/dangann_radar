@@ -19,11 +19,12 @@ Page({
     wx.setNavigationBarTitle({
       title: city_name
     })
-    var request_url = "http://192.168.2.2:8000/api/v1/city_spot_list/" + city_name + "/"
+    var request_url = "http://dangann.com/api/v1/city_spot_list/" + city_name + "/"
     wx.request({
       url: request_url,
       header: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          'Authorization': 'JWT ' + wx.getStorageSync('api_token')
       },
       success: function(res) {
         var spot_list = res.data

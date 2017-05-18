@@ -12,10 +12,46 @@
             <view class="weui-tab__panel">
                 <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
                   <view class="userinfo">
-                    <text class="user-motto" style="margin-top: 20px">单干小雷达</text>
-                    <text class="user-motto" style="margin-top: 20px; margin-left:10px; margin-right: 10px">与自由工作者、程序员、设计师分享适合办公的地方</text>
-                    <text class="user-motto" style="margin-top: 20px; margin-left:10px; margin-right: 10px">还没想好推荐什么地方</text>
+                    <text class="user-motto" style="margin-top: 20px; margin-left:10px; margin-right: 10px">与自由工作者、程序员、设计师分享适合外出办公的地方</text>
                   </view>
+
+                  <view class="page__bd">
+                    <view class="weui-panel weui-panel_access">
+                      <view class="weui-panel__hd" style="font-size:20px; color:black; border: 1rpx solid #fff">动态</view>
+                      <view wx:if="{{spot_list != '1'}}" class="weui-panel__bd">
+
+                        <block wx:for="{{comments_list}}" wx:for-item="comment" wx:key="*this">
+                          <view class="weui-media-box weui-media-box_text">
+                            <view class="weui-media-box__title weui-media-box__title_in-text" style="font-size: 18px" bindtap="bindUserDetailViewTap" id="{{comment.comment_user_id}}">@{{comment.comment_user_name}}</view>
+                            <view class="weui-media-box__desc" wx:if="{{comment.comment_mark == 'comment'}}" >{{comment.comment_date}} 评论</view>
+                            <view class="weui-media-box__desc" wx:if="{{comment.comment_mark == 'check'}}" >{{comment.comment_date}} 签到</view>
+                            <view class="weui-media-box__desc" bindtap="bindSpotViewTap" id="{{comment.spot_id}}">{{comment.spot_city}} | {{comment.spot_name}} </view>
+                            <!-- <view class="weui-media-box__desc">{{spot.commit_message}}</view> -->
+                          </view>
+                        </block>
+
+                        <block wx:for="{{spot_list}}" wx:for-item="spot" wx:key="*this">
+                          <view class="weui-media-box weui-media-box_text">
+                            <view class="weui-media-box__title weui-media-box__title_in-text" style="font-size: 18px" bindtap="bindUserDetailViewTap" id="{{spot.commit_user_id}}">@{{spot.commit_user_name}}</view>
+                            <view class="weui-media-box__desc">{{spot.commit_date}} 提交</view>
+                            <view class="weui-media-box__desc" bindtap="bindSpotViewTap" id="{{spot.id}}">{{spot.city}} | {{spot.name}}</view>
+                            <!-- <view class="weui-media-box__desc">{{spot.commit_message}}</view> -->
+                          </view>
+                        </block>
+
+                      </view>
+                    </view>
+                  </view>
+
+                  <view class="button-sp-area">
+                    <button class="weui-btn" type="primary" plain="true" bindtap="bindNewViewTap">提交新地点</button>
+                  </view>
+
+                  <view class="button-sp-area">
+                    <button class="weui-btn" type="primary" plain="true" bindtap="bindNearViewTap">附近地点</button>
+                  </view>
+
+
                 </view>
                 <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
                   <scroll-view scroll-y style="height: {{windowHeight}}" scroll-into-view="{{alpha}}">
@@ -57,8 +93,8 @@
                         <view class="weui-panel__hd" style="font-size:20px; color:black; border: 1rpx solid #fff">我去过的</view>
                         <view wx:if="{{user_comment_list != '1'}}" class="weui-panel__bd">
                           <block wx:for="{{user_comment_list}}" wx:for-item="comment" wx:key="*this">
-                            <view class="weui-media-box weui-media-box_text" id="{{comment.id}}">
-                              <view class="weui-media-box__title weui-media-box__title_in-text">{{comment.spot_name}}</view>
+                            <view class="weui-media-box weui-media-box_text">
+                              <view class="weui-media-box__title weui-media-box__title_in-text" bindtap="bindSpotViewTap" id="{{comment.spot_id}}">{{comment.spot_name}}</view>
                               <view wx:if="{{comment.comment_mark == 'comment'}}" class="weui-media-box__desc">在 {{comment.comment_date}} 评论: {{comment.comment_message}}</view>
                               <view wx:else class="weui-media-box__desc">在 {{comment.comment_date}} 签到</view>
                             </view>
@@ -86,8 +122,8 @@
                         <view class="weui-panel__hd" style="font-size:20px; color:black; border: 1rpx solid #fff">我提交的</view>
                         <view wx:if="{{user_spot_list != '1'}}" class="weui-panel__bd">
                           <block wx:for="{{user_spot_list}}" wx:for-item="spot" wx:key="*this">
-                            <view class="weui-media-box weui-media-box_text" id="{{spot.id}}">
-                              <view class="weui-media-box__title weui-media-box__title_in-text">{{spot.name}}</view>
+                            <view class="weui-media-box weui-media-box_text">
+                              <view class="weui-media-box__title weui-media-box__title_in-text" bindtap="bindSpotViewTap" id="{{spot.id}}">{{spot.name}}</view>
                               <view class="weui-media-box__desc">在 {{spot.commit_date}} 提交</view>
                             </view>
                           </block>
@@ -110,7 +146,7 @@
                     </view>
 
                     <view class="button-sp-area">
-                      <button class="weui-btn" type="primary" plain="true" bindtap="bindNewViewTap">提交新地点</button>
+                      <button class="weui-btn" type="primary" plain="true" bindtap="bindProfileViewTap">个人资料</button>
                     </view>
                   </view>
                 </view>

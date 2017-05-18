@@ -15,11 +15,12 @@ Page({
     wx.setNavigationBarTitle({
       title: spot_name
     })
-    var request_url = "http://192.168.2.2:8000/api/v1/all_spot_comment_list/" + spot_id + "/?format=json"
+    var request_url = "http://dangann.com/api/v1/all_spot_comment_list/" + spot_id + "/?format=json"
     wx.request({
       url: request_url,
       header: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          'Authorization': 'JWT ' + wx.getStorageSync('api_token')
       },
       success: function(res) {
         var all_comment_list = res.data

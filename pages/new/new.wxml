@@ -66,13 +66,13 @@
                     <input class="weui-input" name="bathroom" value="{{bathroom}}" hidden/>
                     <input class="weui-input" name="longitude" value="{{longitude}}" hidden/>
                     <input class="weui-input" name="latitude" value="{{latitude}}" hidden/>
-                    <textarea class="weui-textarea" name="commit_message" placeholder="人多吗？有插座吗？网速快吗？有熊孩子吗？有洗手间吗" style="height: 10.0em" />
+                    <textarea class="weui-textarea" name="commit_message" placeholder="人多吗？有插座吗？网速快吗？有熊孩子吗？有洗手间吗？" style="height: 10.0em" />
                 </view>
             </view>
         </view>
       </view>
       <view class="weui-btn-area">
-        <button class="weui-btn" type="primary" formType="submit">评论</button>
+        <button class="weui-btn" type="primary" formType="submit">提交</button>
       </view>
     </form>
   </view>

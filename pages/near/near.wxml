@@ -1,0 +1,27 @@
+<view class="page" style="margin-bottom:60px">
+  <view class="page__bd">
+    <view>
+      <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="12" markers="{{markers}}" show-location style="width: 100%; height: 280px;"></map>
+    </view>
+  </view>
+
+  <view class="page__bd" wx:if="{{spot_list_count != 0}}">
+    <view class="userinfo">
+      <text class="user-motto" style="margin-top: 20px; margin-bottom: 20px; margin-left:10px; margin-right: 10px">您附近有 {{spot_list_count}} 个地点</text>
+    </view>
+
+    <view class="weui-form-preview">
+      <block wx:for="{{spot_list}}" wx:for-item="spot" wx:key="*this">
+        <view class="weui-media-box weui-media-box_text" id="{{spot.id}}" bindtap="bindSpotViewTap">
+          <view class="weui-media-box__title weui-media-box__title_in-text">{{spot.name}}</view>
+          <view wx:if="{{spot.commit_user_name}}" class="weui-media-box__desc">@{{spot.commit_user_name}}: {{spot.commit_message}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="page__bd" wx:else>
+    <view class="userinfo">
+      <text class="user-motto" style="margin-top: 20px; margin-left:10px; margin-right: 10px">您的附近暂无地点，快提交一个适合办公的新地点吧</text>
+    </view>
+  </view>
+</view>

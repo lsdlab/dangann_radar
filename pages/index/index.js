@@ -23,7 +23,7 @@ Page({
         ],
         alpha: '',
         windowHeight: '',
-        tabs: ["推荐", "城市", "我"],
+        tabs: ["动态", "城市", "我"],
         activeIndex: 0,
         sliderOffset: 0,
         sliderLeft: 0,
@@ -41,8 +41,6 @@ Page({
       wx.navigateTo({
         url: '../city_map/city_map?city_name=' + city_name
       })
-
-
     },
     // bindLogViewTap: function() {
     //   wx.navigateTo({
@@ -54,7 +52,26 @@ Page({
         url: '../new/new'
       })
     },
-
+    bindNearViewTap: function() {
+       wx.navigateTo({
+        url: '../near/near'
+      })
+    },
+    bindSpotViewTap: function(event) {
+      wx.navigateTo({
+        url: '../spot_detail/spot_detail?spot_id=' + event.currentTarget.id
+      })
+    },
+    bindProfileViewTap: function(event) {
+      wx.navigateTo({
+        url: '../profile/profile'
+      })
+    },
+    bindUserDetailViewTap: function(event) {
+      wx.navigateTo({
+        url: '../user_detail/user_detail?user_id=' + event.currentTarget.id
+      })
+    },
     onLoad: function () {
       console.log('onLoad')
       var that = this
@@ -70,11 +87,12 @@ Page({
         wx.setStorageSync('userInfo', userInfo)
 
         function getUserCommentList(user_data) {
-          var user_comment_list_request_url = "http://192.168.2.2:8000/api/v1/user_comment_list/" + user_data.id + "/?format=json"
+          var user_comment_list_request_url = "http://dangann.com/api/v1/user_comment_list/" + user_data.id + "/?format=json"
           wx.request({
             url: user_comment_list_request_url,
             header: {
-              'content-type': 'application/json'
+              'content-type': 'application/json',
+              'Authorization': 'JWT ' + wx.getStorageSync('api_token')
             },
             success: function(res) {
               var user_comment_list = res.data
@@ -89,11 +107,12 @@ Page({
         }
 
         function getUserSpotList(user_data) {
-          var user_comment_list_request_url = "http://192.168.2.2:8000/api/v1/user_spot_list/" + user_data.id + "/?format=json"
+          var user_comment_list_request_url = "http://dangann.com/api/v1/user_spot_list/" + user_data.id + "/?format=json"
           wx.request({
             url: user_comment_list_request_url,
             header: {
-              'content-type': 'application/json'
+              'content-type': 'application/json',
+              'Authorization': 'JWT ' + wx.getStorageSync('api_token')
             },
             success: function(res) {
               var user_spot_list = res.data
@@ -107,13 +126,67 @@ Page({
           })
         }
 
+        function get_RandomSpotList() {
+          var random_spot_list = "http://dangann.com/api/v1/random_spots/?format=json"
+          wx.request({
+            url: random_spot_list,
+            header: {
+              'content-type': 'application/json',
+              'Authorization': 'JWT ' + wx.getStorageSync('api_token')
+            },
+            success: function(res) {
+              var spot_list = res.data
+              that.setData({
+                spot_list: spot_list,
+                spot_list_count: spot_list.length
+              })
+            }
+          })
+        }
+
+        function get_LatestCommentsList() {
+          var latest_comments_list = "http://dangann.com/api/v1/latest_comments/?format=json"
+          wx.request({
+            url: latest_comments_list,
+            header: {
+              'content-type': 'application/json',
+              'Authorization': 'JWT ' + wx.getStorageSync('api_token')
+            },
+            success: function(res) {
+              var comments_list = res.data
+              that.setData({
+                comments_list: comments_list,
+                comments_list_count: comments_list.length
+              })
+            }
+          })
+        }
+
+        function get_api_token() {
+          var api_token_request_url = "http://dangann.com/api/v1/api-token-auth/?format=json"
+          wx.request({
+            method: 'POST',
+            data: {
+               'username': 'api_user_for_weixin',
+               'password': '1234%^&*'
+            },
+            url: api_token_request_url,
+            success: function(res) {
+              var token_data = res.data
+              wx.setStorageSync('api_token', token_data['token'])
+            }
+          })
+        }
+
+        get_api_token()
         var nickname = userInfo['nickName']
         var avatarurl = userInfo['avatarUrl']
-        var check_user_request_url = "http://192.168.2.2:8000/api/v1/check_user/" + nickname + "/?format=json"
+        var check_user_request_url = "http://dangann.com/api/v1/check_user/" + nickname + "/?format=json"
         wx.request({
           url: check_user_request_url,
           header: {
-            'content-type': 'application/json'
+            'content-type': 'application/json',
+            'Authorization': 'JWT ' + wx.getStorageSync('api_token')
           },
           success: function(res) {
             if (_.isEmpty(res.data)) {
@@ -126,7 +199,8 @@ Page({
                 },
                 url: create_user_request_url,
                 header: {
-                  'content-type':'application/x-www-form-urlencoded'
+                  'content-type':'application/x-www-form-urlencoded',
+                  'Authorization': 'JWT ' + wx.getStorageSync('api_token')
                 },
                 success: function(res) {
                   var user_data = res.data
@@ -134,8 +208,22 @@ Page({
                   console.log(user_data)
                   wx.setStorageSync('user_data', user_data)
 
-                  getUserCommentList(user_data)
-                  getUserSpotList(user_data)
+
+                  if (user_data['location'] == '') {
+                    wx.navigateTo({
+                      url: '../profile/profile'
+                    })
+                    wx.showToast({
+                      title: '请输入常住城市',
+                      icon: 'info',
+                      duration: 2000
+                    });
+                  } else {
+                    getUserCommentList(user_data)
+                    getUserSpotList(user_data)
+                    get_LatestCommentsList()
+                    get_RandomSpotList()
+                  }
                 }
               })
             } else {
@@ -144,8 +232,16 @@ Page({
               console.log(user_data)
               wx.setStorageSync('user_data', user_data)
 
-              getUserCommentList(user_data)
-              getUserSpotList(user_data)
+              if (user_data['location'] == '') {
+                wx.navigateTo({
+                  url: '../profile/profile'
+                })
+              } else {
+                getUserCommentList(user_data)
+                getUserSpotList(user_data)
+                get_LatestCommentsList()
+                get_RandomSpotList()
+              }
             }
           }
         })

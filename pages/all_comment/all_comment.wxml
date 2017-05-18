@@ -8,7 +8,7 @@
           <image class="weui-media-box__thumb userinfo-avatar" src="{{comment.comment_user_avatarurl}}"/>
         </view>
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-          <view class="weui-media-box__title weui-media-box__title_in-text">{{comment.comment_user_name}}</view>
+          <view class="weui-media-box__title weui-media-box__title_in-text">@{{comment.comment_user_name}}</view>
           <view wx:if="{{comment.comment_mark == 'comment'}}" class="weui-media-box__desc">在 {{comment.comment_date}} 评论: {{comment.comment_message}}</view>
           <view wx:else class="weui-media-box__desc">在 {{comment.comment_date}} 签到</view>
         </view>

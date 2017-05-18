@@ -1,0 +1,24 @@
+<view class="page" style="margin-bottom:60px">
+  <view class="page__bd">
+    <view class="weui-form-preview">
+      <view class="weui-form-preview__hd">
+          <view class="weui-form-preview__label" hidden>{{user_detail.weixin_nickName}}</view>
+          <view class="weui-form-preview__value_in-hd">{{user_detail.weixin_nickName}}</view>
+      </view>
+      <view class="weui-form-preview__bd">
+          <view class="weui-form-preview__item">
+              <view class="weui-form-preview__label">常住城市</view>
+              <view class="weui-form-preview__value">{{user_detail.location}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+              <view class="weui-form-preview__label">微信号</view>
+              <view class="weui-form-preview__value">{{user_detail.weixin}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+              <view class="weui-form-preview__label">个人介绍</view>
+              <view class="weui-form-preview__value">{{user_detail.bio}}</view>
+          </view>
+      </view>
+    </view>
+  </view>
+</view>

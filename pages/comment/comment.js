@@ -1,6 +1,7 @@
 Page({
     data: {
-      spot_name: ''
+      spot_name: '',
+      spot_city: ''
     },
     formSubmit: function(e) {
       var that = this
@@ -8,7 +9,7 @@ Page({
       var spot_id = e.detail.value.spot_id
       var spot_city = e.detail.value.spot_city
 
-      var comment_request_url = "http://192.168.2.2:8000/api/v1/comments/?format=json"
+      var comment_request_url = "http://dangann.com/api/v1/comments/?format=json"
       wx.request({
         method: 'POST',
         data: {
@@ -18,12 +19,13 @@ Page({
            'comment_user_avatarurl': wx.getStorageSync('userInfo').avatarUrl,
            'comment_user_name': wx.getStorageSync('user_data').username,
            'comment_mark': 'comment',
-           'comment_mark': spot_city
+           'spot_city': spot_city
 
         },
         url: comment_request_url,
         header: {
-          'content-type':'application/x-www-form-urlencoded'
+          'content-type':'application/x-www-form-urlencoded',
+          'Authorization': 'JWT ' + wx.getStorageSync('api_token')
         },
         success: function(res) {
           var comment_data = res.data
@@ -56,11 +58,13 @@ Page({
       var that = this
       var spot_id = options.spot_id
       var spot_name = options.spot_name
+      var spot_city = options.spot_city
 
       that.setData({
         spot_name: spot_name,
         spot_id: spot_id,
-        spot_name: spot_name
+        spot_name: spot_name,
+        spot_city: spot_city
       })
   }
 });

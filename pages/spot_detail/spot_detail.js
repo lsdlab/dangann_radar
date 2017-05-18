@@ -1,6 +1,5 @@
 var util = require('../../utils/util.js')
 var _ = require( '../../libs/underscore-min.js' );
-// require( '../../libs/jweixin-1.0.0.js' );
 
 Page({
   data: {
@@ -8,15 +7,27 @@ Page({
     spot_data: {},
     spot_name: '',
     spot_id: '',
-    checked_text: '签到'
+    checked_text: '签到',
+    controls: [{
+        id: 1,
+        iconPath: '/image/start_navi.png',
+        position: {
+          left: 15,
+          top: 15,
+          width: 100,
+          height: 31
+        },
+        clickable: true
+    }]
   },
   // 事件处理函数
   // 查看全部评论
   bindAllCommentViewTap: function(event) {
     var spot_id = event.currentTarget.id.split('@')[0]
     var spot_name = event.currentTarget.id.split('@')[1]
+    var spot_city = event.currentTarget.id.split('@')[2]
     wx.navigateTo({
-      url: '../all_comment/all_comment?spot_id=' + spot_id + '&spot_name=' + spot_name
+      url: '../all_comment/all_comment?spot_id=' + spot_id + '&spot_name=' + spot_name + '&spot_city=' + spot_city
     })
   },
   // 提交评论
@@ -25,7 +36,7 @@ Page({
     var spot_name = event.currentTarget.id.split('@')[1]
     var spot_city = event.currentTarget.id.split('@')[2]
     wx.navigateTo({
-      url: '../comment/comment?spot_id=' + spot_id + '&spot_name=' + spot_name + '&spot_city' + spot_city
+      url: '../comment/comment?spot_id=' + spot_id + '&spot_name=' + spot_name + '&spot_city=' + spot_city
     })
   },
   // 签到
@@ -34,7 +45,7 @@ Page({
     var spot_id = event.currentTarget.id.split('@')[0]
     var spot_name = event.currentTarget.id.split('@')[1]
     var spot_city = event.currentTarget.id.split('@')[2]
-    var check_request_url = "http://192.168.2.2:8000/api/v1/comments/?format=json"
+    var check_request_url = "http://dangann.com/api/v1/comments/?format=json"
     wx.request({
       method: 'POST',
       data: {
@@ -44,11 +55,11 @@ Page({
          'comment_user_avatarurl': wx.getStorageSync('userInfo').avatarUrl,
          'comment_mark': 'check',
          'city': spot_city
-
       },
       url: check_request_url,
       header: {
-        'content-type':'application/x-www-form-urlencoded'
+        'content-type':'application/x-www-form-urlencoded',
+        'Authorization': 'JWT ' + wx.getStorageSync('api_token')
       },
       success: function(res) {
         var check_data = res.data
@@ -70,6 +81,15 @@ Page({
           checked_text: '已签到'
         })
       }
+    })
+  },
+  controltap: function(e) {
+    console.log(e.controlId)
+    wx.openLocation({
+      longitude: this.data.spot_data.longitude,
+      latitude: this.data.spot_data.latitude,
+      name: this.data.spot_data.name,
+      address: this.data.spot_data.name
     })
   },
   onLoad: function (options) {
@@ -97,11 +117,12 @@ Page({
     //   })
     // }
 
-    var request_url = "http://192.168.2.2:8000/api/v1/spots/" + spot_id.toString() + "/?format=json"
+    var request_url = "http://dangann.com/api/v1/spots/" + spot_id.toString() + "/?format=json"
     wx.request({
       url: request_url,
       header: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          'Authorization': 'JWT ' + wx.getStorageSync('api_token')
       },
       success: function(res) {
         var spot_data = res.data
@@ -137,11 +158,12 @@ Page({
       }
     })
 
-    var spot_comment_list_request_url = "http://192.168.2.2:8000/api/v1/spot_comment_list/" + spot_id + "/?format=json"
+    var spot_comment_list_request_url = "http://dangann.com/api/v1/spot_comment_list/" + spot_id + "/?format=json"
     wx.request({
       url: spot_comment_list_request_url,
       header: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          'Authorization': 'JWT ' + wx.getStorageSync('api_token')
       },
       success: function(res) {
         var spot_comment_list = res.data
