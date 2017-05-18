@@ -44,9 +44,9 @@ Page({
           'Authorization': 'JWT ' + wx.getStorageSync('api_token')
         },
         success: function(res) {
-          var user_data = res.data
-          console.log('user_data')
-          console.log(user_data)
+          var user_detail = res.data
+          console.log('user_detail')
+          console.log(user_detail)
 
           wx.showToast({
             title: '已更新',
@@ -54,7 +54,22 @@ Page({
             duration: 2000
           })
 
-          // wx.redirectTo({ url: './index/index'})
+          var user_id = wx.getStorageSync('user_data').id
+          var user_detail_request_url = "http://dangann.com/api/v1/users/" + user_id + "/?format=json"
+          wx.request({
+            url: user_detail_request_url,
+            header: {
+              'content-type': 'application/json',
+              'Authorization': 'JWT ' + wx.getStorageSync('api_token')
+            },
+            success: function(res) {
+              var user_detail = res.data
+              that.setData({
+                user_detail: user_detail
+              })
+              wx.setStorageSync('user_data', user_detail)
+            }
+          })
         }
       })
     }
@@ -68,27 +83,24 @@ Page({
   onLoad: function () {
     console.log('onLoad')
     var that = this
-    var user_data = wx.getStorageSync('user_data')
+    var user_detail = wx.getStorageSync('user_data')
 
-    if (user_data.open_mark == true) {
-      user_data.open_mark = '1'
+    if (user_detail.open_mark == true) {
+      user_detail.open_mark = '1'
     } else {
-      user_data.open_mark = '0'
+      user_detail.open_mark = '0'
     }
 
     that.setData({
-      user_data: user_data,
+      user_detail: user_detail,
     })
 
-
-
-    if (user_data.location == '') {
+    if (user_detail.location == '') {
       wx.showToast({
         title: '首次使用，请输入常住城市',
         icon: 'info',
         duration: 2000
       })
     }
-
-  },
+  }
 })

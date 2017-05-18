@@ -11,7 +11,7 @@
     </view>
 
     <view class="weui-form-preview">
-      <block wx:for="{{spot_list}}" wx:for-item="spot" wx:key="*this">
+      <block wx:for="{{spot_list}}" wx:for-item="spot" wx:key="{{index}}">
         <view class="weui-media-box weui-media-box_text" id="{{spot.id}}" bindtap="bindSpotViewTap">
           <view class="weui-media-box__title weui-media-box__title_in-text">{{spot.name}}</view>
           <view wx:if="{{spot.commit_user_name}}" class="weui-media-box__desc">@{{spot.commit_user_name}}: {{spot.commit_message}}</view>

@@ -20,7 +20,7 @@
                       <view class="weui-panel__hd" style="font-size:20px; color:black; border: 1rpx solid #fff">动态</view>
                       <view wx:if="{{spot_list != '1'}}" class="weui-panel__bd">
 
-                        <block wx:for="{{comments_list}}" wx:for-item="comment" wx:key="*this">
+                        <block wx:for="{{comments_list}}" wx:for-item="comment" wx:key="{{index}}">
                           <view class="weui-media-box weui-media-box_text">
                             <view class="weui-media-box__title weui-media-box__title_in-text" style="font-size: 18px" bindtap="bindUserDetailViewTap" id="{{comment.comment_user_id}}">@{{comment.comment_user_name}}</view>
                             <view class="weui-media-box__desc" wx:if="{{comment.comment_mark == 'comment'}}" >{{comment.comment_date}} 评论</view>
@@ -30,7 +30,7 @@
                           </view>
                         </block>
 
-                        <block wx:for="{{spot_list}}" wx:for-item="spot" wx:key="*this">
+                        <block wx:for="{{spot_list}}" wx:for-item="spot" wx:key="{{index}}">
                           <view class="weui-media-box weui-media-box_text">
                             <view class="weui-media-box__title weui-media-box__title_in-text" style="font-size: 18px" bindtap="bindUserDetailViewTap" id="{{spot.commit_user_id}}">@{{spot.commit_user_name}}</view>
                             <view class="weui-media-box__desc">{{spot.commit_date}} 提交</view>
@@ -92,7 +92,7 @@
                       <view class="weui-panel weui-panel_access">
                         <view class="weui-panel__hd" style="font-size:20px; color:black; border: 1rpx solid #fff">我去过的</view>
                         <view wx:if="{{user_comment_list != '1'}}" class="weui-panel__bd">
-                          <block wx:for="{{user_comment_list}}" wx:for-item="comment" wx:key="*this">
+                          <block wx:for="{{user_comment_list}}" wx:for-item="comment" wx:key="{{index}}">
                             <view class="weui-media-box weui-media-box_text">
                               <view class="weui-media-box__title weui-media-box__title_in-text" bindtap="bindSpotViewTap" id="{{comment.spot_id}}">{{comment.spot_name}}</view>
                               <view wx:if="{{comment.comment_mark == 'comment'}}" class="weui-media-box__desc">在 {{comment.comment_date}} 评论: {{comment.comment_message}}</view>
@@ -121,7 +121,7 @@
                       <view class="weui-panel weui-panel_access">
                         <view class="weui-panel__hd" style="font-size:20px; color:black; border: 1rpx solid #fff">我提交的</view>
                         <view wx:if="{{user_spot_list != '1'}}" class="weui-panel__bd">
-                          <block wx:for="{{user_spot_list}}" wx:for-item="spot" wx:key="*this">
+                          <block wx:for="{{user_spot_list}}" wx:for-item="spot" wx:key="{{index}}">
                             <view class="weui-media-box weui-media-box_text">
                               <view class="weui-media-box__title weui-media-box__title_in-text" bindtap="bindSpotViewTap" id="{{spot.id}}">{{spot.name}}</view>
                               <view class="weui-media-box__desc">在 {{spot.commit_date}} 提交</view>

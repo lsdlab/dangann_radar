@@ -7,7 +7,7 @@
                   <view class="weui-label">常住城市</view>
               </view>
               <view class="weui-cell__bd">
-                  <input class="weui-input" name="location" value="{{user_data.location}}"/>
+                  <input class="weui-input" name="location" value="{{user_detail.location}}"/>
               </view>
           </view>
           <view class="weui-cell weui-cell_input">
@@ -15,21 +15,21 @@
                   <view class="weui-label">微信号</view>
               </view>
               <view class="weui-cell__bd">
-                  <input class="weui-input" name="weixin" value="{{user_data.weixin}}"/>
+                  <input class="weui-input" name="weixin" value="{{user_detail.weixin}}"/>
               </view>
           </view>
           <view class="weui-cells weui-cells_after-title" hidden>
             <radio-group bindchange="radioChange">
               <label class="weui-cell weui-check__label">
                 <view class="weui-cell__hd">
-                  <radio value="0" checked="true" wx:if="{{user_data.open_mark == '0'}}"/>
+                  <radio value="0" checked="true" wx:if="{{user_detail.open_mark == '0'}}"/>
                   <radio value="0" wx:else/>
                 </view>
                 <view class="weui-cell__bd">不公开微信号</view>
               </label>
               <label class="weui-cell weui-check__label">
                 <view class="weui-cell__hd">
-                  <radio value="1" checked="true" wx:if="{{user_data.open_mark == '1'}}"/>
+                  <radio value="1" checked="true" wx:if="{{user_detail.open_mark == '1'}}"/>
                   <radio value="1" wx:else/>
                 </view>
                 <view class="weui-cell__bd">公开微信号</view>
@@ -40,8 +40,8 @@
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell">
                 <view class="weui-cell__bd">
-                    <input class="weui-input" name="open_mark" value="{{user_data.open_mark}}" hidden/>
-                    <textarea class="weui-textarea" name="bio" value="{{user_data.bio}}" placeholder="个人介绍，从事行业，希望认识那些行业的朋友" style="height: 10.0em" />
+                    <input class="weui-input" name="open_mark" value="{{user_detail.open_mark}}" hidden/>
+                    <textarea class="weui-textarea" name="bio" value="{{user_detail.bio}}" placeholder="个人介绍，从事行业，希望认识那些行业的朋友" style="height: 10.0em" />
                 </view>
             </view>
         </view>

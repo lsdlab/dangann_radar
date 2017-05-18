@@ -18,7 +18,7 @@ Page({
           {alphabet: 'G', datas: ['广州', '贵阳']},
           {alphabet: 'H', datas: ['杭州']},
           {alphabet: 'N', datas: ['南京']},
-          {alphabet: 'S', datas: ['上海','深圳', '苏州']},
+          {alphabet: 'S', datas: ['上海', '深圳']},
           {alphabet: 'W', datas: ['武汉']},
         ],
         alpha: '',

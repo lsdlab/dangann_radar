@@ -1,6 +1,9 @@
 var app = getApp()
 Page({
   data: {
+    array: ['北京', '广州', '贵阳', '杭州', '南京', '上海', '深圳', '武汉'],
+    index: 0,
+    city: '北京',
     bathroom: '0',
     items: [
       {name: '有洗手间', value: '0'},
@@ -10,7 +13,7 @@ Page({
   bindPickerChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      index: e.detail.value
+      city: e.detail.value
     })
   },
   formSubmit: function(e) {

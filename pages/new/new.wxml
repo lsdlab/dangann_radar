@@ -13,7 +13,10 @@
                   <view class="weui-label">城市</view>
               </view>
               <view class="weui-cell__bd">
-                  <input class="weui-input" name="city" placeholder="请输入城市"/>
+                  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                    <view class="weui-input">{{array[index]}}</view>
+                  </picker>
+                  <!-- <input class="weui-input" name="city" placeholder="请输入城市"/> -->
               </view>
           </view>
           <view class="weui-cell weui-cell_input">
@@ -63,6 +66,7 @@
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell">
                 <view class="weui-cell__bd">
+                    <input class="weui-input" name="city" value="{{city}}" hidden/>
                     <input class="weui-input" name="bathroom" value="{{bathroom}}" hidden/>
                     <input class="weui-input" name="longitude" value="{{longitude}}" hidden/>
                     <input class="weui-input" name="latitude" value="{{latitude}}" hidden/>
