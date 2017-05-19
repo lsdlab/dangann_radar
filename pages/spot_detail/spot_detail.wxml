@@ -25,7 +25,7 @@
           </view>
           <view class="weui-form-preview__item">
               <view class="weui-form-preview__label">评论</view>
-              <view class="weui-form-preview__value" wx:if="{{spot_data.commit_user_name == ''}}" >@{{spot_data.commit_user_name}}: {{spot_data.commit_message}}</view>
+              <view class="weui-form-preview__value" wx:if="{{spot_data.commit_user_name != ''}}" >@{{spot_data.commit_user_name}}: {{spot_data.commit_message}}</view>
           </view>
           <view class="weui-form-preview__item">
               <view class="weui-form-preview__label">提交日期</view>

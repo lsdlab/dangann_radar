@@ -3,7 +3,7 @@
     <view class="weui-form-preview">
       <view class="weui-form-preview__hd">
           <view class="weui-form-preview__label" hidden>{{user_detail.weixin_nickName}}</view>
-          <view class="weui-form-preview__value_in-hd">{{user_detail.weixin_nickName}}</view>
+          <view class="weui-form-preview__value_in-hd">{{user_detail.weixin_nickName || user_detail.nickname}}</view>
       </view>
       <view class="weui-form-preview__bd">
           <view class="weui-form-preview__item">

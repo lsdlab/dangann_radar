@@ -32,7 +32,7 @@
 
                         <block wx:for="{{spot_list}}" wx:for-item="spot" wx:key="{{index}}">
                           <view class="weui-media-box weui-media-box_text">
-                            <view class="weui-media-box__title weui-media-box__title_in-text" style="font-size: 18px" bindtap="bindUserDetailViewTap" id="{{spot.commit_user_id}}">@{{spot.commit_user_name}}</view>
+                            <view class="weui-media-box__title weui-media-box__title_in-text" style="font-size: 18px" bindtap="bindUserDetailViewTap" id="{{spot.commit_user_id}}@{{spot.commit_user_name}}">@{{spot.commit_user_name}}</view>
                             <view class="weui-media-box__desc">{{spot.commit_date}} 提交</view>
                             <view class="weui-media-box__desc" bindtap="bindSpotViewTap" id="{{spot.id}}">{{spot.city}} | {{spot.name}}</view>
                             <view class="weui-media-box__desc">{{spot.commit_message}}</view>
