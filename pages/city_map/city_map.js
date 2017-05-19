@@ -65,8 +65,8 @@ Page({
           spots_count: spot_list.length
         })
 
-        longitude = spot_list[0].longitude
-        latitude = spot_list[0].latitude
+        var longitude = spot_list[0].longitude
+        var latitude = spot_list[0].latitude
 
         var spot_id = spot_list[0].id
         var request_url = "http://dangann.com/api/v1/spots/" + spot_id.toString() + "/?format=json"
