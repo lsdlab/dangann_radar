@@ -24,7 +24,7 @@ Page({
         alpha: '',
         windowHeight: '',
         tabs: ["动态", "城市", "我"],
-        activeIndex: 0,
+        activeIndex: 1,
         sliderOffset: 0,
         sliderLeft: 0,
         userInfo: {},
@@ -75,7 +75,7 @@ Page({
     onLoad: function () {
       console.log('onLoad')
       var that = this
-
+      wx.showNavigationBarLoading()
       app.getUserInfo(function(userInfo){
         console.log('userInfo')
         console.log(userInfo)
@@ -223,6 +223,7 @@ Page({
                     getUserSpotList(user_data)
                     get_LatestCommentsList()
                     get_RandomSpotList()
+                    wx.hideNavigationBarLoading()
                   }
                 }
               })
@@ -241,6 +242,7 @@ Page({
                 getUserSpotList(user_data)
                 get_LatestCommentsList()
                 get_RandomSpotList()
+                wx.hideNavigationBarLoading()
               }
             }
           }

@@ -95,6 +95,7 @@ Page({
   onLoad: function (options) {
     console.log('onLoad')
     var that = this
+    wx.showNavigationBarLoading()
     var spot_id = options.spot_id
 
     var current_date = new Date()
@@ -173,6 +174,8 @@ Page({
         that.setData({
           spot_comment_list: spot_comment_list
         })
+
+        wx.hideNavigationBarLoading()
       }
     })
   },

@@ -14,6 +14,7 @@ Page({
   },
   markertap: function(event) {
     var that = this
+
     console.log(event.markerId)
     var spot_id = event.markerId
     var request_url = "http://dangann.com/api/v1/spots/" + spot_id.toString() + "/?format=json"
@@ -42,6 +43,7 @@ Page({
   onLoad: function (options) {
     console.log('onLoad')
     var that = this
+    wx.showNavigationBarLoading()
     var city_name = options.city_name
     that.setData({
       city_name: city_name
@@ -119,6 +121,8 @@ Page({
           latitude: latitude,
           markers: markers
         })
+
+        wx.hideNavigationBarLoading()
       }
     })
   }

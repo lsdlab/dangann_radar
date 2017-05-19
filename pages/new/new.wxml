@@ -16,7 +16,7 @@
                   <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
                     <view class="weui-input">{{array[index]}}</view>
                   </picker>
-                  <!-- <input class="weui-input" name="city" placeholder="请输入城市"/> -->
+                  <!-- <input class="weui-input" name="city" placeholder=""/> -->
               </view>
           </view>
           <view class="weui-cell weui-cell_input">
@@ -24,7 +24,7 @@
                   <view class="weui-label">地点名称</view>
               </view>
               <view class="weui-cell__bd">
-                  <input class="weui-input" name="spot_name" placeholder="请输入地点名称"/>
+                  <input class="weui-input" name="spot_name" placeholder=""/>
               </view>
           </view>
           <view class="weui-cell weui-cell_input">
@@ -32,7 +32,7 @@
                   <view class="weui-label">下载速度</view>
               </view>
               <view class="weui-cell__bd">
-                  <input class="weui-input" name="download_speed" placeholder="请输入下载速度"/>
+                  <input class="weui-input" name="download_speed" placeholder=""/>
               </view>
           </view>
           <view class="weui-cell weui-cell_input">
@@ -40,7 +40,7 @@
                   <view class="weui-label">上传速度</view>
               </view>
               <view class="weui-cell__bd">
-                  <input class="weui-input" name="upload_speed" placeholder="请输入上传速度"/>
+                  <input class="weui-input" name="upload_speed" placeholder=""/>
               </view>
           </view>
           <view class="weui-cell weui-cell_input">
@@ -48,7 +48,7 @@
                   <view class="weui-label">价格</view>
               </view>
               <view class="weui-cell__bd">
-                  <input class="weui-input" name="price_indication" placeholder="请输入价格"/>
+                  <input class="weui-input" name="price_indication" placeholder=""/>
               </view>
           </view>
           <view class="weui-cells weui-cells_after-title">
@@ -75,7 +75,7 @@
             </view>
         </view>
       </view>
-      <view class="weui-btn-area">
+      <view class="weui-btn-area" style="margin-bottom: 40px">
         <button class="weui-btn" type="primary" formType="submit">提交</button>
       </view>
     </form>

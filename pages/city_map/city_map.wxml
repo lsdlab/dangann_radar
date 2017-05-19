@@ -2,7 +2,7 @@
   <view class="page__bd">
     <view class="weui-form-preview">
       <view>
-        <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="10" markers="{{markers}}"  bindmarkertap="markertap" show-location style="width: 100%; height: 280px;"></map>
+        <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="12" markers="{{markers}}"  bindmarkertap="markertap" show-location style="width: 100%; height: 280px;"></map>
       </view>
     </view>
   </view>

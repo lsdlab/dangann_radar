@@ -9,6 +9,7 @@ Page({
   onLoad: function (options) {
     console.log('onLoad')
     var that = this
+    wx.showNavigationBarLoading()
     var spot_id = options.spot_id
     var spot_name = options.spot_name
 
@@ -31,6 +32,8 @@ Page({
           all_comment_list: all_comment_list,
           spot_id: spot_id
         })
+
+        wx.hideNavigationBarLoading()
       }
     })
 

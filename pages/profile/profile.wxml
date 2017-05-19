@@ -46,7 +46,7 @@
             </view>
         </view>
       </view>
-      <view class="weui-btn-area">
+      <view class="weui-btn-area" style="margin-bottom: 40px">
         <button class="weui-btn" type="primary" formType="submit">保存</button>
       </view>
     </form>
