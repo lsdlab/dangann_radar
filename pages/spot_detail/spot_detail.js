@@ -21,6 +21,12 @@ Page({
     }]
   },
   // 事件处理函数
+  // 用户详情
+  bindUserDetailViewTap: function(event) {
+    wx.navigateTo({
+      url: '../user_detail/user_detail?user_id=' + event.currentTarget.id
+    })
+  },
   // 查看全部评论
   bindAllCommentViewTap: function(event) {
     var spot_id = event.currentTarget.id.split('@')[0]
@@ -50,11 +56,12 @@ Page({
       method: 'POST',
       data: {
          'spot_id': spot_id,
+         'comment_message': '',
          'comment_user_id': wx.getStorageSync('user_data').id,
          'comment_user_name': wx.getStorageSync('user_data').username,
          'comment_user_avatarurl': wx.getStorageSync('userInfo').avatarUrl,
          'comment_mark': 'check',
-         'city': spot_city
+         'spot_city': spot_city
       },
       url: check_request_url,
       header: {

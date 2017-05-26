@@ -27,9 +27,9 @@ Page({
             shareData.title = user_detail.weixin_nickName
             shareData.path = '/pages/user_detail/user_detail?user_id=' + user_id.toString()
             that.setData({
+              user_detail: user_detail,
               shareData: shareData,
             })
-
         }
       })
     } else {

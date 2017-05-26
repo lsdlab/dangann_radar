@@ -20,7 +20,6 @@ Page({
            'comment_user_name': wx.getStorageSync('user_data').username,
            'comment_mark': 'comment',
            'spot_city': spot_city
-
         },
         url: comment_request_url,
         header: {

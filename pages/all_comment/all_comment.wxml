@@ -3,7 +3,7 @@
   <view wx:if="{{all_comment_list != '1'}}" class="weui-panel__bd" id="{{all_comment_list}}">
     <block wx:for="{{all_comment_list}}" wx:for-item="comment" wx:key="{{index}}">
 
-      <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" id="{{comment.id}}" bindtap="bindViewTap">
+      <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" bindtap="bindUserDetailViewTap" id="{{comment.comment_user_id}}">
         <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
           <image class="weui-media-box__thumb userinfo-avatar" src="{{comment.comment_user_avatarurl}}"/>
         </view>

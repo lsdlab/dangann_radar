@@ -6,6 +6,12 @@ Page({
     spot_id: '',
     all_comment_list: []
   },
+  // 用户详情
+  bindUserDetailViewTap: function(event) {
+    wx.navigateTo({
+      url: '../user_detail/user_detail?user_id=' + event.currentTarget.id
+    })
+  },
   onLoad: function (options) {
     console.log('onLoad')
     var that = this
@@ -36,7 +42,5 @@ Page({
         wx.hideNavigationBarLoading()
       }
     })
-
-
   }
 })

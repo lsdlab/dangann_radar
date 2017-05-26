@@ -15,7 +15,7 @@ Page({
   onLoad: function () {
     console.log('onLoad')
     var that = this
-    city_name = wx.getStorageSync('user_data').location
+    var city_name = wx.getStorageSync('user_data').location
     wx.getLocation({
       type: 'wgs84',
       success: function(res) {
