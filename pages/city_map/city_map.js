@@ -17,7 +17,7 @@ Page({
 
     console.log(event.markerId)
     var spot_id = event.markerId
-    var request_url = "http://dangann.com/api/v1/spots/" + spot_id.toString() + "/?format=json"
+    var request_url = "https://dangann.com/api/v1/spots/" + spot_id.toString() + "/?format=json"
     wx.request({
       url: request_url,
       header: {
@@ -51,7 +51,7 @@ Page({
     wx.setNavigationBarTitle({
       title: city_name
     })
-    var request_url = "http://dangann.com/api/v1/city_spot_list_for_map/" + city_name + "/"
+f    var request_url = "https://dangann.com/api/v1/city_spot_list_for_map/" + city_name + "/"
     wx.request({
       url: request_url,
       header: {
@@ -69,7 +69,7 @@ Page({
         var latitude = spot_list[0].latitude
 
         var spot_id = spot_list[0].id
-        var request_url = "http://dangann.com/api/v1/spots/" + spot_id.toString() + "/?format=json"
+        var request_url = "https://dangann.com/api/v1/spots/" + spot_id.toString() + "/?format=json"
           wx.request({
             url: request_url,
             header: {

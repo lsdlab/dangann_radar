@@ -14,7 +14,7 @@ Page({
     var user_name = options.user_id.split('@')[1]
     var user_detail = {}
     if (user_id) {
-      var user_detail_request_url = "http://dangann.com/api/v1/users/" + user_id + "/?format=json"
+      var user_detail_request_url = "https://dangann.com/api/v1/users/" + user_id + "/?format=json"
       wx.request({
         url: user_detail_request_url,
         header: {

@@ -23,7 +23,7 @@ Page({
         var longitude = res.longitude
 
         if (city_name) {
-          var request_url = "http://dangann.com/api/v1/city_spot_list/" + city_name + "/"
+          var request_url = "https://dangann.com/api/v1/city_spot_list/" + city_name + "/"
           wx.request({
             url: request_url,
             header: {
@@ -39,7 +39,7 @@ Page({
 
               if (spot_list.length != 0) {
                 var spot_id = spot_list[0].id
-                var request_url = "http://dangann.com/api/v1/spots/" + spot_id.toString() + "/?format=json"
+                var request_url = "https://dangann.com/api/v1/spots/" + spot_id.toString() + "/?format=json"
                   wx.request({
                     url: request_url,
                     header: {

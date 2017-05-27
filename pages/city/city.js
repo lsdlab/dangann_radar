@@ -19,7 +19,7 @@ Page({
     wx.setNavigationBarTitle({
       title: city_name
     })
-    var request_url = "http://dangann.com/api/v1/city_spot_list/" + city_name + "/"
+    var request_url = "https://dangann.com/api/v1/city_spot_list/" + city_name + "/"
     wx.request({
       url: request_url,
       header: {

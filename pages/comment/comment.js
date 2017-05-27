@@ -9,7 +9,7 @@ Page({
       var spot_id = e.detail.value.spot_id
       var spot_city = e.detail.value.spot_city
 
-      var comment_request_url = "http://dangann.com/api/v1/comments/?format=json"
+      var comment_request_url = "https://dangann.com/api/v1/comments/?format=json"
       wx.request({
         method: 'POST',
         data: {

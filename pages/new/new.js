@@ -41,7 +41,7 @@ Page({
         duration: 1000
       })
     } else {
-      var comment_request_url = "http://dangann.com/api/v1/spots/"
+      var comment_request_url = "https://dangann.com/api/v1/spots/"
       wx.request({
         method: 'POST',
         data: {

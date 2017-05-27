@@ -29,7 +29,7 @@ Page({
         duration: 1000
       })
     } else {
-      var update_weixin_user_request_url = "http://dangann.com/api/v1/update_weixin_user/" + wx.getStorageSync('user_data').id + '/'
+      var update_weixin_user_request_url = "https://dangann.com/api/v1/update_weixin_user/" + wx.getStorageSync('user_data').id + '/'
       wx.request({
         method: 'POST',
         data: {
