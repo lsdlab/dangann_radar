@@ -6,6 +6,10 @@
 
 数据来源于: [ElaWorkshop/awesome-cn-cafe](https://github.com/ElaWorkshop/awesome-cn-cafe)
 
+已经上线：
+
+![Group4@2x](https://breakwire.me/images/dangann/wechat-mini-app.jpg)
+
 
 
 ![Group@2x](https://breakwire.me/images/dangann/Group@2x.png)
