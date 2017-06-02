@@ -1,5 +1,7 @@
 # 单干小雷达
 
+![Language](https://img.shields.io/badge/language-JavaScript-green.svg?style=flat-square)
+
 ![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)
 
 微信小程序：与自由工作者、程序员、设计师分享适合办公的地点。
@@ -8,7 +10,7 @@
 
 已经上线：
 
-![Group4@2x](https://breakwire.me/images/dangann/wechat-mini-app.jpg)
+![wechat-mini-app](https://breakwire.me/images/dangann/wechat-mini-app.jpg)
 
 
 
