@@ -30,13 +30,6 @@ Page({
           spot_data: spot_data,
           spot_id: spot_id
         })
-
-        var shareData = {}
-        shareData.title = spot_data.name
-        shareData.path = '/pages/spot_detail/spot_detail?spot_id=' + spot_id.toString()
-        that.setData({
-          shareData: shareData,
-        })
       }
     })
   },
@@ -51,6 +44,13 @@ Page({
     wx.setNavigationBarTitle({
       title: city_name
     })
+    var shareData = {}
+    shareData.title = city_name
+    shareData.path =  'pages/city_map/city_map?city_name=' + city_name
+    that.setData({
+      shareData: shareData,
+    })
+
     var request_url = "https://dangann.com/api/v1/city_spot_list_for_map/" + city_name + "/"
     wx.request({
       url: request_url,
@@ -81,13 +81,6 @@ Page({
               that.setData({
                 spot_data: spot_data,
                 spot_id: spot_id
-              })
-
-              var shareData = {}
-              shareData.title = spot_data.name
-              shareData.path = '/pages/spot_detail/spot_detail?spot_id=' + spot_id.toString()
-              that.setData({
-                shareData: shareData,
               })
             }
           })
@@ -125,5 +118,8 @@ Page({
         wx.hideNavigationBarLoading()
       }
     })
+  },
+  onShareAppMessage: function () {
+    return this.data.shareData
   }
 })

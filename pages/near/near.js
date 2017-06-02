@@ -74,7 +74,6 @@ Page({
                   markers: markers
                 })
               }
-
             }
           })
         }

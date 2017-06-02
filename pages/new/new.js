@@ -92,7 +92,6 @@ Page({
       success: function(res) {
         var latitude = res.latitude
         var longitude = res.longitude
-
         that.setData({
           longitude: longitude,
           latitude: latitude
