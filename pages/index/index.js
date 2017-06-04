@@ -195,7 +195,8 @@ Page({
                 method: 'POST',
                 data: {
                    'weixin_nickName': nickname,
-                   'weixin_avatarUrl': avatarurl
+                   'weixin_avatarUrl': avatarurl,
+                   'client_mark': 'weixin'
                 },
                 url: create_user_request_url,
                 header: {

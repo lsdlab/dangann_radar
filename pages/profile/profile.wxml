@@ -2,14 +2,19 @@
   <view class="page__bd">
     <form catchsubmit="formSubmit">
       <view class="weui-cells weui-cells_after-title">
-          <view class="weui-cell weui-cell_input">
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
               <view class="weui-cell__hd">
-                  <view class="weui-label">常住城市</view>
+                <view class="weui-label">当前选择</view>
               </view>
               <view class="weui-cell__bd">
-                  <input class="weui-input" name="location" value="{{user_detail.location}}"/>
+                <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                  <view class="weui-input">{{array[index]}}</view>
+                </picker>
               </view>
+            </view>
           </view>
+
           <view class="weui-cell weui-cell_input">
               <view class="weui-cell__hd">
                   <view class="weui-label">微信号</view>
@@ -40,6 +45,7 @@
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell">
                 <view class="weui-cell__bd">
+                    <input class="weui-input" name="city" value="{{city}}" hidden/>
                     <input class="weui-input" name="open_mark" value="{{user_detail.open_mark}}" hidden/>
                     <textarea class="weui-textarea" name="bio" value="{{user_detail.bio}}" placeholder="个人介绍，从事行业，希望认识那些行业的朋友" style="height: 10.0em" />
                 </view>

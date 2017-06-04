@@ -10,7 +10,7 @@
 
 已经上线：
 
-![wechat-mini-app](https://breakwire.me/images/dangann/wechat-mini-app.jpg)
+![weixin-qrcode](https://breakwire.me/images/dangann/weixin-qrcode.png)
 
 
 

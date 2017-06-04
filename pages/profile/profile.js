@@ -1,12 +1,26 @@
 var app = getApp()
 Page({
   data: {
+    array: ['北京', '广州', '贵阳', '杭州', '南京', '上海', '深圳', '武汉'],
+    index: 0,
+    city: '北京',
     open_mark: '1'
   },
   bindPickerChange: function(e) {
+    var city_dict = {
+      '0': '北京',
+      '1': '广州',
+      '2': '贵阳',
+      '3': '杭州',
+      '4': '南京',
+      '5': '上海',
+      '6': '深圳',
+      '7': '武汉',
+    }
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      index: e.detail.value
+      index: e.detail.value,
+      city: city_dict[e.detail.value]
     })
   },
   formSubmit: function(e) {

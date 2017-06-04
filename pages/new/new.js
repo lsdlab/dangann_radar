@@ -11,9 +11,20 @@ Page({
     ]
   },
   bindPickerChange: function(e) {
+    var city_dict = {
+      '0': '北京',
+      '1': '广州',
+      '2': '贵阳',
+      '3': '杭州',
+      '4': '南京',
+      '5': '上海',
+      '6': '深圳',
+      '7': '武汉',
+    }
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      city: e.detail.value
+      index: e.detail.value,
+      city: city_dict[e.detail.value]
     })
   },
   formSubmit: function(e) {

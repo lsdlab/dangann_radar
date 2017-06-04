@@ -19,7 +19,6 @@
                     <view class="weui-panel weui-panel_access">
                       <view class="weui-panel__hd" style="font-size:20px; color:black; border: 1rpx solid #fff">动态</view>
                       <view wx:if="{{spot_list != '1'}}" class="weui-panel__bd">
-
                         <block wx:for="{{comments_list}}" wx:for-item="comment" wx:key="{{index}}">
                           <view class="weui-media-box weui-media-box_text">
                             <view class="weui-media-box__title weui-media-box__title_in-text" style="font-size: 18px" bindtap="bindUserDetailViewTap" id="{{comment.comment_user_id}}">@{{comment.comment_user_name}}</view>
