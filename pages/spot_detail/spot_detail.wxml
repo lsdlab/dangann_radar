@@ -37,8 +37,7 @@
       </view>
       <view class="weui-form-preview__ft">
         <view class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="bindCommentViewTap" id="{{spot_id}}@{{spot_data.name}}@{{spot_data.city}}">评论</view>
-        <view wx:if="{{checked_or_not == 'checked'}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">已签到</view>
-        <view wx:else class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="bindCheckViewTap" id="{{spot_id}}@{{spot_data.name}}@{{spot_data.city}}">{{checked_text}}</view>
+        <view class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="bindCheckViewTap" id="{{spot_id}}@{{spot_data.name}}@{{spot_data.city}}">{{checked_text}}</view>
       </view>
     </view>
   </view>

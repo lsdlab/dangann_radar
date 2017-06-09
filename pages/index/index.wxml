@@ -50,8 +50,11 @@
                     <button class="weui-btn" type="primary" plain="true" bindtap="bindNearViewTap">附近地点</button>
                   </view>
 
-
+                  <view class="userinfo" style="margin-top: 10px;">
+                    <text class="user-motto" style="margin-top: 10px; margin-left:20px; margin-right: 20px">如果你对这个应用感兴趣，有需要改进的地方，请访问 https://dangann.com 给我们留言</text>
+                  </view>
                 </view>
+
                 <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
                   <scroll-view scroll-y style="height: {{windowHeight}}" scroll-into-view="{{alpha}}">
                     <view class="alphabet">
@@ -79,6 +82,7 @@
                       </view>
                     </view>
                 </view>
+
                 <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
                   <!--user.wxml-->
                   <view>
@@ -146,6 +150,10 @@
 
                     <view class="button-sp-area">
                       <button class="weui-btn" type="primary" plain="true" bindtap="bindProfileViewTap">个人资料</button>
+                    </view>
+
+                    <view class="userinfo" style="margin-top: 10px;">
+                      <text class="user-motto" style="margin-top: 10px; margin-left:20px; margin-right: 20px">如果你对这个应用感兴趣，有需要改进的地方，请访问 https://dangann.com 给我们留言</text>
                     </view>
                   </view>
                 </view>
