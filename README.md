@@ -1,6 +1,7 @@
 # 单干小雷达
 
 ![Language](https://img.shields.io/badge/language-JavaScript-green.svg?style=flat-square)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Flsdlab%2Fdangann_radar.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Flsdlab%2Fdangann_radar?ref=badge_shield)
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)
 
@@ -21,3 +22,7 @@
 ![Group4@2x](https://breakwire.me/images/dangann/Group4@2x.png)
 
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Flsdlab%2Fdangann_radar.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Flsdlab%2Fdangann_radar?ref=badge_large)
